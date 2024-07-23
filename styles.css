@@ -4,7 +4,7 @@ body, html {
     height: 100%;
     width: 100%;
     font-family: Arial, sans-serif;
-    background-color: white; /* Added white background */
+
 }
 
 .background-image {
@@ -23,7 +23,6 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px 40px;
 }
 
@@ -99,9 +98,9 @@ body, html {
     text-align: left;
     color: white;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.8); /* Added background color with transparency */
     padding: 20px;
     border-radius: 10px;
+    margin-bottom: 200px;
 }
 
 .content h1 {
@@ -178,6 +177,7 @@ body, html {
     height: auto;
     z-index: 1;
     margin-right: 180px;
+    padding-bottom: 150px;
 }
 
 
@@ -185,8 +185,8 @@ body, html {
 .clients {
     padding: 50px 20px;
     text-align: center;
-    background-color: #f9f9f9; /* Background color for the new section */
     margin-top: 50px; /* Ensure there's some space above the new section */
+    margin-bottom: 180px;
 }
 
 .clients h2 {
@@ -201,12 +201,16 @@ body, html {
     flex-wrap: wrap;
     gap: 20px;
     margin-bottom: 40px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .client-logos img {
     max-width: 60px; /* Set maximum width */
     width: auto; /* Maintain aspect ratio */
     height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto;
 }
 
 .clients h3 {
@@ -222,10 +226,16 @@ body, html {
 
 .specialities {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
     gap: 20px;
     margin-top: 20px;
+    padding-bottom: 80px;
+}
+
+.toospecial{
+    text-align: center;
+    margin-bottom: 100px;
 }
 
 
