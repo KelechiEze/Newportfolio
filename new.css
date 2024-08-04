@@ -23,7 +23,7 @@ a {
 }
 
 h1 {
-    font-weight: 300;
+    font-weight: lighter;
     font-size: 60px;
     line-height: 1.2;
     margin-bottom: 15px;
@@ -142,6 +142,7 @@ video {
     border: 1px #fff solid;
     border-radius: 5px;
     opacity: 0.7;
+    margin-top: 90px;
 }
 
 .btn:hover {
@@ -153,17 +154,19 @@ video {
     align-items: center;
     justify-content: center;
     padding: 60px 20px;
-    background-color: #f4f4f4;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/pexels-photo-1590549.jpeg') no-repeat center center/cover;
+    color: #fff; /* Ensure the text color is white for readability */
 }
 
 .about-container {
     display: flex;
     max-width: 1200px;
     width: 100%;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background for better text readability */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-top: 20px;
+    border-radius: 12px;;
 }
 
 .about-text, .about-image {
@@ -172,12 +175,16 @@ video {
 }
 
 .about-text {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow added */
-    background-color: #fff; /* Ensure background color is white to show the shadow */
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/dimages.jpeg') no-repeat center center/cover;
+    color: #fff; /* Ensure the text color is white for readability */
     margin-bottom: 20px;
     height: 54%;
     margin-top: 80px;
     margin-left: 45px;
+    padding: 40px;
+    border-radius: 8px;
 }
 
 #about {
@@ -186,7 +193,7 @@ video {
     background-color: #f4f4f4;
 }
 
-#about h2 {
+#about .me {
     font-size: 40px;
     margin-bottom: 20px;
     color: grey;
@@ -201,6 +208,7 @@ video {
 .about-text h2 {
     font-size: 36px;
     margin-bottom: 20px;
+    color: #FFF;
 }
 
 .about-text p {
