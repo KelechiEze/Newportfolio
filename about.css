@@ -1,5 +1,10 @@
 :root {
     --primary-color: #3a4052;
+    --secondary-color: #6C63FF;
+    --background-color: #f4f4f4;
+    --form-background: #fff;
+    --button-color: #6C63FF;
+    --button-hover: #594df8;
 }
 
 * {
@@ -15,6 +20,7 @@ html {
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
+    background-color: var(--background-color);
 }
 
 a {
@@ -84,4 +90,113 @@ h1 {
 
 .navbarz li i {
     font-size: 1.2em;
+}
+
+/* Contact Section Styles */
+.contact-section {
+    padding: 60px 20px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    width: 100%;
+    background-color: var(--form-background);
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contact-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.contact-info h2 {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-email {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.contact-email i {
+    margin-right: 10px;
+}
+
+.contact-email a {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.contact-form {
+    flex: 1;
+    background-color: var(--form-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.contact-form button {
+    padding: 10px;
+    background-color: var(--button-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-info {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
 }
