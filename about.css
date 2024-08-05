@@ -5,6 +5,7 @@
     --form-background: #fff;
     --button-color: #6C63FF;
     --button-hover: #594df8;
+    --input-border-hover: #007BFF;
 }
 
 * {
@@ -174,6 +175,12 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #fff;
+    transition: border-color 0.3s ease; 
+}
+
+.contact-form input:hover, .contact-form textarea:hover,
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--input-border-hover); /* Change border color on hover and focus */
 }
 
 .contact-form button {
