@@ -15,7 +15,7 @@
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
 body {
@@ -175,12 +175,12 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #fff;
-    transition: border-color 0.3s ease; 
+    transition: border-color 0.3s ease;
 }
 
 .contact-form input:hover, .contact-form textarea:hover,
 .contact-form input:focus, .contact-form textarea:focus {
-    border-color: var(--input-border-hover); /* Change border color on hover and focus */
+    border-color: var(--input-border-hover);
 }
 
 .contact-form button {

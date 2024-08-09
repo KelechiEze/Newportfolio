@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact me</title>
-        <link rel="stylesheet" href="about.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="navbar-logo">
-                <a href="#">JR</a>
-            </div>
-            <ul class="navbar-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutme.html">About me</a></li>
-                <li><a href="contact.html">Contact me</a></li>
-            </ul>
-            <ul class="navbarz">
-                <li><p>Eng</p></li>
-                <li><i class="fa fa-phone" aria-hidden="true"></i></li>
-                <li><i class="fa fa-share-alt" aria-hidden="true"></i></li>
-            </ul>
-        </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact me</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="#">JR</a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+            <li><a href="contact.html">Contact me</a></li>
+        </ul>
+        <ul class="navbarz">
+            <li><p>Eng</p></li>
+            <li><i class="fa fa-phone" aria-hidden="true"></i></li>
+            <li><i class="fa fa-share-alt" aria-hidden="true"></i></li>
+        </ul>
+    </nav>
 
-        <!-- Existing sections -->
-
-        <section id="contact" class="contact-section">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Let's chat.<br>Tell me about your project.</h2>
-                    <p>Let's create something together.</p>
-                    <div class="contact-email">
-                        <i class="fa fa-envelope"></i>
-                        <span>Mail me at</span>
-                        <a href="mailto:kelechieze2000@gmail.com">kelechieze2000@gmail.com</a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h2>Send us a message <i class="fa fa-rocket"></i></h2>
-                    <form>
-                        <input type="text" name="name" placeholder="Full name*" required>
-                        <input type="email" name="email" placeholder="Email address*" required>
-                        <input type="text" name="subject" placeholder="Subject">
-                        <textarea name="message" placeholder="Tell us more about your project*" required></textarea>
-                        <button type="submit">Send message</button>
-                    </form>
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Let's chat.<br>Tell me about your project.</h2>
+                <p>Let's create something together.</p>
+                <div class="contact-email">
+                    <i class="fa fa-envelope"></i>
+                    <span>Mail me at</span>
+                    <a href="mailto:kelechieze2000@gmail.com">kelechieze2000@gmail.com</a>
                 </div>
             </div>
-        </section>
-    </body>
+            <div class="contact-form">
+                <h2>Send us a message <i class="fa fa-rocket"></i></h2>
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Full name*" required>
+                    <input type="email" name="email" placeholder="Email address*" required>
+                    <input type="text" name="subject" placeholder="Subject">
+                    <textarea name="message" placeholder="Tell us more about your project*" required></textarea>
+                    <button type="submit" class="btn">Send message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="contact.js"></script>
+</body>
 </html>
