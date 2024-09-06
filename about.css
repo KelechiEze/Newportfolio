@@ -43,7 +43,6 @@ h1 {
     align-items: center;
     background-color: #333;
     padding: 10px 20px;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -252,6 +251,7 @@ h1 {
            margin-top: 20px;
            font-size: 14px;
        }
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
