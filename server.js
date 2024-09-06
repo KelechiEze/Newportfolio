@@ -30,7 +30,6 @@ app.post('/send', async (req, res) => {
         from: email, // Sender's email (from the form)
         to: 'kelechieze2000@gmail.com', // Your email address (where the form data will be sent)
         subject: subject || 'No Subject',
-        cc:'ugwuisaaciu@gmail.com',
         html: `
             <h2>New message from your website</h2>
             <p><strong>Name:</strong> ${name}</p>
