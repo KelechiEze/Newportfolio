@@ -299,13 +299,26 @@ h1 {
 }
 
 .slide {
+    font-size: 1.6rem;
+    font-weight: 200;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     min-width: 150px; /* Adjust to control the size of each slide */
     margin: 0 10px; /* Optional: space between slides */
     display: flex;
+    transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
 }
 
+.slide:hover {
+    color: #003366; /* Deep blue business-like color */
+    transform: scale(1.2); /* Slightly enlarge the text */
+    text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.8), 
+                 -3px -3px 10px rgba(255, 215, 0, 0.8); /* Gold glow effect */
+}
 .slide img {
     width: 100%; /* Make the image take up full width of the slide */
     height: auto; /* Maintain image aspect ratio */
