@@ -30,14 +30,15 @@ app.post('/send', async (req, res) => {
         from: email, // Sender's email (from the form)
         to: 'kelechieze2000@gmail.com', // Your email address (where the form data will be sent)
         subject: subject || 'No Subject',
+        cc:'ugwuisaaciu@gmail.com',
         html: `
             <h2>New message from your website</h2>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Subject:</strong> ${subject}</p>
             <p><strong>Message:</strong></p>
-            <p>${message}</p>
-        `,
+            <p>${message}</p> 
+            `,
     };
 
     try {
@@ -50,5 +51,7 @@ app.post('/send', async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
+    
     console.log(`Server is running on http://localhost:${port}`);
+
 });
