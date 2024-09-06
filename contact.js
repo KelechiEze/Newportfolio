@@ -1,34 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        emailSend();
-    });
-});
+document.getElementById('contact-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
 
-function emailSend() {
     const name = document.querySelector('input[name="name"]').value;
     const email = document.querySelector('input[name="email"]').value;
     const subject = document.querySelector('input[name="subject"]').value;
     const message = document.querySelector('textarea[name="message"]').value;
 
-    const body = `
-        Name: ${name}<br>
-        Email: ${email}<br>
-        Subject: ${subject}<br>
-        Message: ${message}
-    `;
+    try {
+        const response = await fetch('http://localhost:18000/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, subject, message }),
+        });
 
-    Email.send({
-        Host: "smtp.elasticemail.com",
-        Username: "kelechieze2000@gmail.com",
-        Password: "96EAA3A40C17BF2961A732398E025249DA35",
-        To: 'kelechieze400@gmail.com',
-        From: "kelechieze2000@gmail.com",
-        Subject: subject,
-        Body: body
-    }).then(
-        message => alert(message)
-    ).catch(
-        error => alert("Failed to send message: " + error)
-    );
-}
+        const data = await response.json();
+        alert(data.message);
+    } catch (error) {
+        alert('Failed to send message');
+    }
+});
