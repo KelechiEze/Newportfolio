@@ -13,7 +13,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
     try {
         // Send the data to the server
-        const response = await fetch('https://newportfolio-jlo8.onrender.com/send', {
+        const response = await fetch('https://newportfolio-jlo8.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
