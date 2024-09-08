@@ -7,6 +7,10 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const subject = document.querySelector('input[name="subject"]').value;
     const message = document.querySelector('textarea[name="message"]').value;
 
+    // Show the loading overlay
+    const loaderOverlay = document.getElementById('loader-overlay');
+    loaderOverlay.style.display = 'flex';  // Show the loader by setting display to flex
+
     try {
         // Send the data to the server
         const response = await fetch('https://newportfolio-jlo8.onrender.com/send', {
@@ -19,8 +23,12 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
         const data = await response.json();
 
+        // Hide the loader immediately
+        loaderOverlay.style.display = 'none';
+
         // Check if the response is successful
         if (response.ok) {
+            // Show success message
             alert(data.message);
 
             // Clear the input fields after successful submission
@@ -32,6 +40,8 @@ document.getElementById('contact-form').addEventListener('submit', async functio
             alert('Failed to send message');
         }
     } catch (error) {
+        // Hide the loader immediately on error
+        loaderOverlay.style.display = 'none';
         alert('Failed to send message');
     }
 });
