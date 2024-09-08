@@ -25,22 +25,40 @@ app.post('/send', async (req, res) => {
         },
     });
 
-    // Email content
     let mailOptions = {
-        from: email, // Sender's email (from the form)
-        to: 'kelechieze2000@gmail.com', // Your email address (where the form data will be sent)
+        from: email,
+        to: 'kelechieze2000@gmail.com',
         subject: subject || 'No Subject',
-        cc: '	ugwuisaaciu@gmail.com',
+        cc: 'ugwuisaaciu@gmail.com',
         html: `
-            <h2>New message from your website</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Subject:</strong> ${subject}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message}</p> 
-            `,
+            <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; padding: 20px; border: 1px solid #ddd;">
+                <h2 style="color: #2c3e50; text-align: center; padding-bottom: 10px;">New Message from Your Website</h2>
+                <p style="font-size: 16px;">Hello,</p>
+                <p style="font-size: 16px;">You have received a new message from the contact form on your website. Here are the details:</p>
+                <table style="width: 100%; font-size: 16px; border-collapse: collapse;">
+                    <tr style="background-color: #f9f9f9;">
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Name:</strong></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${name}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${email}</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Subject:</strong></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${subject || 'No Subject'}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Message:</strong></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${message}</td>
+                    </tr>
+                </table>
+                <p style="font-size: 16px; margin-top: 20px;">Kind regards,<br><strong>Your Website</strong></p>
+                <p style="text-align: center; font-size: 12px; color: #999; margin-top: 20px;">This email was automatically generated. Please do not reply.</p>
+            </div>
+        `,
     };
-
+    
     try {
         await transporter.sendMail(mailOptions);
         res.status(200).json({ message: 'Email sent successfully!' });
