@@ -145,6 +145,16 @@ h1 {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+canvas {
+    width: 80%; /* Set width to 80% of the screen */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px auto; /* Add space around the canvas and center it */
+    padding: 10px; /* Optional padding inside the container */
+    display: block; /* Ensures margin works properly */
+    background-color: #f1f1f1; /* Optional background for clarity */
+}
+
+
 
 
 /* Content Styles */
