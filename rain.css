@@ -1,7 +1,13 @@
-/* rain.css */
-.content {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    background: #ffffff; /* White background */
     position: relative;
-    overflow: hidden; /* Ensure rain effect stays within content bounds */
 }
 
 .rain {
@@ -10,28 +16,28 @@
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Allow clicks to pass through */
+    pointer-events: none; /* Prevent raindrops from interfering with user interactions */
 }
 
 .drop {
-    background: rgba(0, 150, 255, 0.6); /* Bright blue with higher opacity for visibility */
+    background: rgba(135, 206, 235, 0.7); /* Light blue color (SkyBlue) with 70% opacity */
     position: absolute;
     width: 2px;
-    border-radius: 50%; /* Rounded for a smooth drop shape */
+    border-radius: 50%; 
     animation: fall linear infinite;
-    opacity: 0.9; /* Adjust opacity to make drops more or less visible */
+    will-change: transform, opacity; /* Optimize for transform and opacity animations */
 }
 
 @keyframes fall {
     0% {
-        transform: translateY(-100px) translateX(0); /* Start above the viewport */
-        opacity: 0.7; /* Start with high visibility */
+        transform: translateY(-100px) translateX(0); /* Start above viewport */
+        opacity: 0.9;
     }
     50% {
         opacity: 1; /* Fully visible mid-fall */
     }
     100% {
-        transform: translateY(100vh) translateX(30px); /* End below the viewport with a wind effect */
-        opacity: 0.7; /* Fade out slightly near the end */
+        transform: translateY(100vh) translateX(30px); /* Wind effect */
+        opacity: 0.7;
     }
 }
