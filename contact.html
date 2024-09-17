@@ -31,6 +31,16 @@
             animation: spin 1s linear infinite; /* Spin animation */
         }
 
+        /* Spin Animation */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
         /* Customer Care Image */
         .customer-care-img {
             position: fixed;
@@ -194,101 +204,129 @@
             <p>&copy; 2024 Kelechi Eze. All rights reserved.</p>
         </div>
     </footer>
+ <!-- Loader Overlay -->
+ <div id="loader-overlay" class="loader-overlay">
+    <div class="loader"></div>
+</div>
 
-    <!-- Loader Overlay -->
-    <div id="loader-overlay" class="loader-overlay">
-        <div class="loader"></div>
+<!-- Customer Care Image -->
+<img src="images/customer_icon-removebg-preview.png" class="customer-care-img" onclick="toggleChat()" alt="Customer Care">
+
+<!-- Chat Window -->
+<div class="chat-window" id="chat-window">
+    <div class="chat-header">
+        Customer Care
     </div>
-
-    <!-- Customer Care Image -->
-    <img src="images/customer_icon-removebg-preview.png" class="customer-care-img" onclick="toggleChat()" alt="Customer Care">
-
-    <!-- Chat Window -->
-    <div class="chat-window" id="chat-window">
-        <div class="chat-header">
-            Customer Care
-        </div>
-        <div class="chat-body" id="chat-body">
-            <p class="ai-message">Hi! How can we help you today?</p>
-        </div>
-        <div class="chat-footer">
-            <input type="text" id="chat-input" placeholder="Type a message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+    <div class="chat-body" id="chat-body">
+        <p class="ai-message">Hi! How can we help you today?</p>
     </div>
+    <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
 
-    <script>
-        // Toggle chat window on clicking the image
-        function toggleChat() {
-            const chatWindow = document.getElementById('chat-window');
-            chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'block' : 'none';
+<script>
+    // Toggle chat window on clicking the image
+    function toggleChat() {
+        const chatWindow = document.getElementById('chat-window');
+        chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'block' : 'none';
+    }
+
+    // Close the chat window when clicking outside of it
+    document.addEventListener('click', function(event) {
+        const chatWindow = document.getElementById('chat-window');
+        const customerCareImg = document.querySelector('.customer-care-img');
+
+        // If click is outside the chat window and not on the customer care image
+        if (!chatWindow.contains(event.target) && event.target !== customerCareImg) {
+            chatWindow.style.display = 'none';
         }
+    });
 
-        // Close the chat window when clicking outside of it
-        document.addEventListener('click', function(event) {
-            const chatWindow = document.getElementById('chat-window');
-            const customerCareImg = document.querySelector('.customer-care-img');
+    // Function to send user message and receive AI response in customer care chat
+    function sendMessage() {
+        const chatInput = document.getElementById('chat-input');
+        const message = chatInput.value.trim();
 
-            // If click is outside the chat window and not on the customer care image
-            if (!chatWindow.contains(event.target) && event.target !== customerCareImg) {
-                chatWindow.style.display = 'none';
-            }
-        });
+        if (message !== "") {
+            const chatBody = document.getElementById('chat-body');
 
-        // Function to send user message and receive AI response
-        function sendMessage() {
-            const chatInput = document.getElementById('chat-input');
-            const message = chatInput.value.trim();
+            // Append user's message
+            const userMessage = document.createElement('p');
+            userMessage.classList.add('user-message');
+            userMessage.textContent = message;
+            chatBody.appendChild(userMessage);
 
-            if (message !== "") {
-                const chatBody = document.getElementById('chat-body');
+            // Scroll to the bottom of the chat
+            chatBody.scrollTop = chatBody.scrollHeight;
 
-                // Append user's message
-                const userMessage = document.createElement('p');
-                userMessage.classList.add('user-message');
-                userMessage.textContent = message;
-                chatBody.appendChild(userMessage);
+            // Clear input field
+            chatInput.value = "";
+
+            // Simulate AI response without showing loader
+            setTimeout(() => {
+                const aiMessage = document.createElement('p');
+                aiMessage.classList.add('ai-message');
+                aiMessage.textContent = generateAIResponse(message);
+                chatBody.appendChild(aiMessage);
 
                 // Scroll to the bottom of the chat
                 chatBody.scrollTop = chatBody.scrollHeight;
+            }, 3000); // 3 second delay for AI response
+        }
+    }
 
-                // Clear input field
-                chatInput.value = "";
+    // Show loader on form submission (contact form, not customer care)
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting immediately
 
-                // Simulate AI response
-                setTimeout(() => {
-                    const aiMessage = document.createElement('p');
-                    aiMessage.classList.add('ai-message');
-                    aiMessage.textContent = generateAIResponse(message);
-                    chatBody.appendChild(aiMessage);
+        showLoader();
 
-                    // Scroll to the bottom of the chat
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                }, 3000); // 3 second delay for AI response
+        // Simulate form submission process
+        setTimeout(() => {
+            // Hide loader after form submission process
+            hideLoader();
+            alert("Form submitted successfully!"); // Display success message or redirect as needed
+            contactForm.reset(); // Reset the form fields
+        }, 3000); // Simulate 3-second form submission delay
+    });
+
+    // Show loader
+    function showLoader() {
+        const loaderOverlay = document.getElementById('loader-overlay');
+        loaderOverlay.style.display = 'flex'; // Display the loader overlay
+    }
+
+    // Hide loader
+    function hideLoader() {
+        const loaderOverlay = document.getElementById('loader-overlay');
+        loaderOverlay.style.display = 'none'; // Hide the loader overlay
+    }
+
+    // Function to generate AI-like response in customer care chat
+    function generateAIResponse(userMessage) {
+        // Simple AI logic, you can expand this or integrate a real AI
+        const responses = {
+            hello: "Hello! How can I assist you today?",
+            pricing: "Our pricing plans vary based on services. Could you specify what you're looking for?",
+            contact: "You can reach us at kelechieze2000@gmail.com or call +234 916 679 8290.",
+            services: "We offer a range of web development, design, and consulting services. What do you need help with?"
+        };
+
+        // Check if user's message contains a known keyword
+        for (let keyword in responses) {
+            if (userMessage.toLowerCase().includes(keyword)) {
+                return responses[keyword];
             }
         }
 
-        // Function to generate AI-like response
-        function generateAIResponse(userMessage) {
-            // Simple AI logic, you can expand this or integrate a real AI
-            const responses = {
-                hello: "Hello! How can I assist you today?",
-                pricing: "Our pricing plans vary based on services. Could you specify what you're looking for?",
-                contact: "You can reach us at kelechieze2000@gmail.com or call +234 916 679 8290.",
-                services: "We offer a range of web development, design, and consulting services. What do you need help with?"
-            };
+        // Default AI response if no keyword is found
+        return "Thank you for your message! We'll get back to you shortly.";
+    }
+</script>
 
-            // Check if user's message contains a known keyword
-            for (let keyword in responses) {
-                if (userMessage.toLowerCase().includes(keyword)) {
-                    return responses[keyword];
-                }
-            }
-
-            // Default AI response if no keyword is found
-            return "Thank you for your message! We'll get back to you shortly.";
-        }
-    </script>
 
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="contact.js"></script>
