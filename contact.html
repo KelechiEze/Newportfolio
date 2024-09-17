@@ -131,6 +131,45 @@
             float: left;
             text-align: left;
         }
+
+         /* Success/Error message container */
+         .message-container {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .message-container.success {
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .message-container.error {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+
+        #success-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #4CAF50; /* Default green background */
+    color: white;
+    border-radius: 5px;
+    z-index: 1000;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease; /* Smooth fade transition */
+}
+
     </style>
 </head>
 <body>
@@ -208,6 +247,9 @@
  <div id="loader-overlay" class="loader-overlay">
     <div class="loader"></div>
 </div>
+
+ <!-- Message container -->
+ <div id="message-container" class="message-container"></div>
 
 <!-- Customer Care Image -->
 <img src="images/customer_icon-removebg-preview.png" class="customer-care-img" onclick="toggleChat()" alt="Customer Care">
