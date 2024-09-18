@@ -101,7 +101,7 @@ app.post('/send', async (req, res) => {
         // Send confirmation email to the user
         await transporter.sendMail(userMailOptions);
 
-        res.status(200).json({ message: 'Email sent successfully!' });
+        res.status(200).json({ message: 'Message sent successfully!' });
     } catch (error) {
         res.status(500).json({ message: 'Failed to send email', error });
     }
