@@ -49,7 +49,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
         // Check if the response is successful
         if (response.ok) {
             // Show success message
-            successMessageElement.textContent = data.message;
+            successMessageElement.textContent = 'Message sent successfully';
             successMessageElement.style.backgroundColor = '#4CAF50'; // Green for success
             successMessageElement.style.opacity = '1'; // Fade-in transition
 
